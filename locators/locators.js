@@ -15,6 +15,8 @@ describe('Locators', () => {
         StudyPage.clickButton()
         StudyPage.compareProductPrice()
 
+        StudyPage.chooseElementFromDropdown()
+
     });
 
 })

@@ -1,3 +1,5 @@
+import {equal} from "uri-js";
+
 class StudyPage{
 
     open(){
@@ -37,6 +39,16 @@ class StudyPage{
         cy.request('GET', Cypress.env("baseUrl")).then(response =>{
             expect(response.status).to.eq(200)
         })
+    }
+
+    get dropdownThreeThings(){
+        return cy.get('select#sel1');
+    }
+
+    chooseElementFromDropdown(){
+        this.dropdownThreeThings.select('Bears').should('have.value', 'first')
+        this.dropdownThreeThings.select('Beets').should('have.value', 'second')
+        this.dropdownThreeThings.select('Battlestar Galactica').should('have.value', 'third')
     }
 
 }
