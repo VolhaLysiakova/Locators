@@ -14,9 +14,9 @@ class StudyPage{
         return cy.get("input#ipt2");
     }
 
-    fillInputs(){
-        this.input1.type("I need to go to Bali");
-        this.input2.type("...immediately");
+    fillInputs(textToFill1, textToFill2){
+        this.input1.type(`${textToFill1}`);
+        this.input2.type(`${textToFill2}`);
     }
 
     get button4(){
