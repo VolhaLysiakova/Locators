@@ -12,19 +12,23 @@ To run tests please do the following:
    ```
 3. Run all tests: 
   - in Electron:
+    
     ```
     npx cypress run
     ```
-  - in Chrome: 
+  - in Chrome:
+    
     ```
     npx cypress run -b chrome
     ```
 4. To record tests in the Cypress Dashboard perform the following command: 
-  - in Electron: 
+  - in Electron:
+    
     ```
     npx cypress run --record --key d0b49937-75c1-4f8a-a66b-bbf8ad35ab54
     ```
-  - in Chrome: 
+  - in Chrome:
+    
     ```
     npx cypress run -b chrome --record --key d0b49937-75c1-4f8a-a66b-bbf8ad35ab54
     ```
