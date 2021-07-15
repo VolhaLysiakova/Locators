@@ -1,3 +1,16 @@
+properties(
+  [
+    parameters(
+      [
+       choice(name: 'video',
+           choices: 'disable recording\nenable recording\n',
+           description: 'Do you want to record video?',
+           default: 'disable recording'),
+      ]),
+      pipelineTriggers([cron('H 01   4)])
+  ]
+)
+
 pipeline {
     agent any
 
