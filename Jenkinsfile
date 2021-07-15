@@ -7,7 +7,7 @@ properties(
            description: 'Do you want to record video?',
            default: 'disable recording'),
       ]),
-      pipelineTriggers([cron('H 01   4)])
+      pipelineTriggers([cron('H 01   4')])
   ]
 )
 
