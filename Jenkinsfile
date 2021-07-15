@@ -21,8 +21,8 @@ properties(
                  choices: 'enable integration\ndisable integration\n',
                  description: 'Do you want to integrate with testrail?',
                  default: 'enable integration'),
-      ]),
-      pipelineTriggers([cron('H 01   1,2,3,4,5')])
+      ])
+      //pipelineTriggers([cron('H 01   1,2,3,4,5')])
   ]
 )
 
