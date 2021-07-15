@@ -1,5 +1,7 @@
 {
   "integrationFolder": "locators/",
+  "projectId": "zk5ien",
+
 
   "env":{
     "baseUrl": "https://techstepacademy.com/training-ground"
