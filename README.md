@@ -4,7 +4,7 @@ A study project.
 To run tests please do the following:
 1. Load the project from GitHub https://github.com/VolhaLysiakova/Locators
 2. Install al the components with the command: 
-   npm install
+   - npm install
 3. Run all tests: 
   - in Electron: npx cypress run
   - in Chrome: npx cypress run -b chrome
