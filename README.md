@@ -1,6 +1,8 @@
 # Locators
 A study project.
 
+Before running test use should install NodeJS >6.1.0 at you environment: https://nodejs.org/en/download/
+
 To run tests please do the following:
 1. Load the project from GitHub https://github.com/VolhaLysiakova/Locators
 2. Install al the components with the command: 
