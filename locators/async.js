@@ -18,13 +18,13 @@ it('Number of items - method WRAP', function () {
     cy.request('https://storage.googleapis.com/mannequin/2018/data/productwall/accessories/en_us.json?c=1571310916')
         .then((response) => {
 
-        cy.wrap(response.body).as("items");
+        cy.wrap(response.body).as("product");
 
     })
 
-    cy.get("@items").then(itemsList => {
-        cy.log("Total amount of products: " + itemsList.products.length)
-        cy.log(itemsList.products[0])
+    cy.get("@product").then(productList => {
+        cy.log("Total amount of products: " + productList.products.length)
+        cy.log(productList.products[0])
 
     })
 
