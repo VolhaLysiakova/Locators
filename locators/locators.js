@@ -3,11 +3,6 @@ import studyPage from "../cypress/page-objects/studyPage";
 
 describe('Locators', () => {
 
-
-    before(() => {
-        //cy.visit('https://example.cypress.io/commands/actions')
-    })
-
     it('Test', function () {
 
        cy.fixture('studyPageFixtures').then(studyPageFixtures =>{

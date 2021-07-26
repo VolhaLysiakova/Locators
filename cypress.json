@@ -2,8 +2,8 @@
   "integrationFolder": "locators/",
   "projectId": "zk5ien",
 
-
   "env":{
-    "baseUrl": "https://techstepacademy.com/training-ground"
+    "baseUrl": "https://techstepacademy.com/training-ground",
+    "currencyUrl": "https://www.xe.com/currencyconverter/"
   }
 }

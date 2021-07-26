@@ -31,6 +31,7 @@
     "cachedir": "^2.3.0",
     "caseless": "^0.12.0",
     "chalk": "^4.1.1",
+    "chance": "^1.1.7",
     "check-more-types": "^2.24.0",
     "ci-info": "^3.2.0",
     "clean-stack": "^2.2.0",
@@ -138,6 +139,7 @@
     "rxjs": "^6.6.7",
     "safe-buffer": "^5.2.1",
     "safer-buffer": "^2.1.2",
+    "set-operations": "^1.2.1",
     "shebang-command": "^2.0.0",
     "shebang-regex": "^3.0.0",
     "signal-exit": "^3.0.3",
@@ -171,5 +173,13 @@
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "A study project.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VolhaLysiakova/Locators.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VolhaLysiakova/Locators/issues"
+  },
+  "homepage": "https://github.com/VolhaLysiakova/Locators#readme"
 }
