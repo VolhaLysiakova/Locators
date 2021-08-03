@@ -1,0 +1,16 @@
+{
+  "goods": [
+    {
+      "name": "Philips Hue Smart Plug",
+      "order": 54,
+      "price_override": "",
+      "staging": true,
+      "start_date": "2020-08-17",
+      "start_time": "08:00",
+      "start_ts": 1597676400,
+      "url": "/product/philips_hue_ble_plug",
+      "multicolor": false
+    }
+
+  ]
+}

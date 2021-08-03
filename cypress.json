@@ -1,9 +1,13 @@
 {
   "integrationFolder": "locators/",
   "projectId": "zk5ien",
+  "defaultCommandTimeout": 30000,
+  "requestTimeout": 30000,
+  "taskTimeout": 30000,
 
   "env":{
     "baseUrl": "https://techstepacademy.com/training-ground",
-    "currencyUrl": "https://www.xe.com/currencyconverter/"
+    "currencyUrl": "https://www.xe.com/currencyconverter/",
+    "googleStoreUrl": "https://store.google.com"
   }
 }

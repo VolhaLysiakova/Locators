@@ -1,0 +1,17 @@
+{
+  "goods": [
+
+    {
+      "name": "Google Pixel 4a (5G) Case",
+      "order": 19,
+      "price_override": "",
+      "staging": true,
+      "start_date": "2020-09-30",
+      "start_time": "11:15",
+      "start_ts": 1601489700,
+      "url": "/product/pixel_4a_5g_case_fabric",
+      "multicolor": true
+
+    }
+  ]
+}
