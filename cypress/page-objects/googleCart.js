@@ -14,12 +14,10 @@ class GoogleCart {
 
     checkProductQuantity() {
         this.getProductQuantity().should('contain', '1')
-
     }
 
-    selectProductQuantity() {
-        let number = '3'
-        return cy.get('select[jsname="YBXNZc"]').select([number])
+    selectProductQuantity(number) {
+        return cy.get('select[jsname="YBXNZc"]').select([`${number}`])
     }
 
     getTotalPrice() {
