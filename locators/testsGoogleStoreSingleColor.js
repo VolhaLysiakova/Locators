@@ -10,7 +10,7 @@ describe('Tests for google store', () => {
     })
 
     before(() => {
-        cy.fixture('products').then(data => {
+        cy.fixture('productSingleColor').then(data => {
             cy.wrap(data).as('productData')
         })
 
@@ -51,14 +51,12 @@ describe('Tests for google store', () => {
                     GoogleCart.getTotalPrice().should('include.text', item.price)
 
                 })
-
-                cy.log('WHEN user deletes product form the cart')
-                GoogleCart.clearCart()
-
-                cy.log('THEN cart is empty')
-                GoogleCart.checkIfTheCartIsEmpty()
             })
         })
+    })
+    after(() => {
+        GoogleCart.clearCartAnyCase()
+        GoogleCart.checkIfTheCartIsEmpty()
     })
 })
 

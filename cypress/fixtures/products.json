@@ -9,7 +9,8 @@
       "start_time": "08:00",
       "start_ts": 1597676400,
       "url": "/product/philips_hue_ble_plug",
-      "multicolor": false
+      "multicolor": false,
+      "color": "Single color"
     },
     {
       "name": "Google Pixel 4a (5G) Case",
@@ -20,7 +21,8 @@
       "start_time": "11:15",
       "start_ts": 1601489700,
       "url": "/product/pixel_4a_5g_case_fabric",
-      "multicolor": true
+      "multicolor": true,
+      "color": "Multicolor"
     }
   ]
 }

@@ -1,5 +1,5 @@
 class GoogleCart {
-
+    
     getProductNameInCart() {
         return cy.get('.cart-lineitem-title .roboto-header-text-9')
     }
@@ -18,10 +18,9 @@ class GoogleCart {
     }
 
     selectProductQuantity() {
-        return cy.get('select[jsname="YBXNZc"]').select(['3'])
+        let number = '3'
+        return cy.get('select[jsname="YBXNZc"]').select([number])
     }
-
- 
 
     getTotalPrice() {
         return cy.get('span[jsname="hMdCqe"]')
@@ -46,6 +45,14 @@ class GoogleCart {
 
     checkIfTheCartIsEmpty() {
         this.yourCartIsEmpty.should('include.text', 'Your cart is empty')
+    }
+
+    clearCartAnyCase() {
+        cy.get('body').then($body => {
+            if($body.find('button[jsname="uXqWSe"]').length) {
+                this.clearCart()
+            }
+        })
     }
 
 

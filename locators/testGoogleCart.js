@@ -54,9 +54,12 @@ describe('Tests for google store', () => {
             cy.log('AND total price is correct')
             GoogleCart.getTotalPrice().should('include.text', item.price)
 
+            cy.log('WHEN user selects product quantity')
             GoogleCart.selectProductQuantity()
-            cy.log('AND total price is correct')
-            GoogleCart.getTotalPrice().should('include.text', item.price*3)
+            
+            cy.log('THEN total price is correct')
+            let quantity = 3
+            GoogleCart.getTotalPrice().should('include.text', item.price*quantity)
 
         })
     })
