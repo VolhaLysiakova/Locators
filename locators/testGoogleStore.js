@@ -10,10 +10,6 @@ describe('Tests for google store', () => {
         return false
     })
 
-    before(() => {
-
-    })
-
     products.goods.forEach(product => {
 
         it(`${product.color} product - Test for Google Store`, function () {
