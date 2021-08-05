@@ -14,8 +14,6 @@ describe('Tests for google store', () => {
 
         it(`${product.color} product - Test for Google Store`, function () {
 
-            let item = {};
-
             cy.log('GIVEN User is at Accessories page')
             GoogleStore.open()
 
@@ -25,61 +23,45 @@ describe('Tests for google store', () => {
 
             cy.log('AND user goes to the product page')
             GoogleStore.goToProductPage(product.name)
-            GoogleStore.getProductName(item)
 
-            if (product.multicolor) {
+            GoogleStore.getProductName().then(productName => {
 
-                GoogleStore.getProductPrice(item).then(() => {
-                    cy.log('AND user clicks button buy')
-                    GoogleStore.clickButtonBuy()
-
-                    cy.log('AND user chooses color')
-                    GoogleStore.buyAnyColor()
-
-                    GoogleStore.getProductColor(item).then(() => {
-                        cy.log('AND user adds product to the cart')
-                        GoogleStore.addToCartAnyColor()
-                        GoogleStore.goToCart()
-
-                        cy.log('THEN added product is displayed in the cart')
-                        GoogleCart.getProductNameInCart().should('include.text', item.title)
-
-                        cy.log('AND product price is correct')
-                        GoogleCart.getProductPriceInCart().should('include.text', item.price)
-
-                        cy.log('AND product quantity is correct')
-                        GoogleCart.checkProductQuantity()
-
-                        cy.log('AND total price is correct')
-                        GoogleCart.getTotalPrice().should('include.text', item.price)
-
-                        cy.log('AND color price is correct')
-                        GoogleCart.getColorInCart().should('include.text', item.color)
-
-                    })
-                })
-
-            } else {
-
-                GoogleStore.getProductPrice(item).then(() => {
+                GoogleStore.getProductPrice().then(productPrice => {
 
                     cy.log('AND user clicks button buy')
-                    GoogleStore.clickButtonBuy()
+                    GoogleStore.clickBuyButton()
+
+                    if (product.multicolor) {
+
+                        cy.log('AND user chooses color of the product')
+                        GoogleStore.buyAnyColor()
+
+                        GoogleStore.getProductColor().then(productColor => {
+
+                            cy.log('AND user adds product to the cart')
+                            GoogleStore.addToCartAnyColor()
+                            GoogleStore.goToCart()
+
+                            cy.log('AND color is correct')
+                            GoogleCart.getColorInCart().should('include.text', productColor.replace('Color: ',''))
+                        })
+                    }
 
                     cy.log('THEN added product is displayed in the cart')
-                    GoogleCart.getProductNameInCart().should('include.text', item.title)
+                    GoogleCart.getProductNameInCart().should('include.text', productName)
 
                     cy.log('AND product price is correct')
-                    GoogleCart.getProductPriceInCart().should('include.text', item.price)
-
-                    cy.log('AND product quantity is correct')
-                    GoogleCart.checkProductQuantity()
+                    GoogleCart.getProductPriceInCart().should('include.text', productPrice.replace('From $', ''))
 
                     cy.log('AND total price is correct')
-                    GoogleCart.getTotalPrice().should('include.text', item.price)
+                    GoogleCart.getTotalPrice().should('include.text', productPrice.replace('From $', ''))
 
                 })
-            }
+            })
+
+            cy.log('AND product quantity is correct')
+            GoogleCart.checkProductQuantity()
+
         })
     })
 

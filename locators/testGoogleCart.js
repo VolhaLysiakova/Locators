@@ -32,7 +32,7 @@ describe('Tests for google store', () => {
 
                 GoogleStore.getProductPrice(item).then(() => {
                     cy.log('AND user clicks button buy')
-                    GoogleStore.clickButtonBuy()
+                    GoogleStore.clickBuyButton()
                 })
             })
         })
@@ -40,7 +40,7 @@ describe('Tests for google store', () => {
 
     it('Google Cart', function () {
 
-        GoogleStore.getProductPrice(item).then(() =>{
+        GoogleStore.getProductPrice(item).then(() => {
 
             cy.log('THEN added product is displayed in the cart')
             GoogleCart.getProductNameInCart().should('include.text', item.title)
@@ -56,12 +56,11 @@ describe('Tests for google store', () => {
 
             let quantity = 3
 
-            cy.log('WHEN user selects product quantity')
+            cy.log(`WHEN user chsnges product quantity from 1 to ${quantity}`)
             GoogleCart.selectProductQuantity(quantity)
-            
+
             cy.log('THEN total price is correct')
-            
-            GoogleCart.getTotalPrice().should('include.text', item.price*quantity)
+            GoogleCart.getTotalPrice().should('include.text', item.price * quantity)
 
         })
     })

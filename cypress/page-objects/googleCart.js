@@ -1,5 +1,5 @@
 class GoogleCart {
-    
+
     getProductNameInCart() {
         return cy.get('.cart-lineitem-title .roboto-header-text-9')
     }
@@ -12,6 +12,22 @@ class GoogleCart {
         return cy.get('option[selected="true"]').invoke('text')
     }
 
+    getTotalPrice() {
+        return cy.get('span[jsname="hMdCqe"]')
+    }
+
+    getRemoveButton() {
+        return cy.get('button[jsname="uXqWSe"]')
+    }
+
+    getColorInCart() {
+        return cy.get('.cart-lineitem-title .roboto-header-text-9')
+    }
+
+    get yourCartIsEmpty() {
+        return cy.get('.ghost-center-wrap .your-cart-is-empty')
+    }
+
     checkProductQuantity() {
         this.getProductQuantity().should('contain', '1')
     }
@@ -20,25 +36,8 @@ class GoogleCart {
         return cy.get('select[jsname="YBXNZc"]').select([`${number}`])
     }
 
-    getTotalPrice() {
-        return cy.get('span[jsname="hMdCqe"]')
-    }
-
-    getButtonRemove() {
-        return cy.get('button[jsname="uXqWSe"]')
-    }
-
-    getColorInCart() {
-        return cy.get('.cart-lineitem-title .roboto-header-text-9')
-    }
-
     clearCart() {
-        this.getButtonRemove().click()
-    }
-
-    get yourCartIsEmpty() {
-        return cy.get('.ghost-center-wrap .your-cart-is-empty')
-
+        this.getRemoveButton().click()
     }
 
     checkIfTheCartIsEmpty() {
@@ -47,14 +46,13 @@ class GoogleCart {
 
     clearCartAnyCase() {
         cy.get('body').then($body => {
-            if($body.find('button[jsname="uXqWSe"]').length) {
+            if ($body.find('button[jsname="uXqWSe"]').length) {
                 this.clearCart()
             }
         })
     }
 
 
-   
 }
 
 export default new GoogleCart()

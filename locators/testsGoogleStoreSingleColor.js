@@ -17,10 +17,8 @@ describe('Tests for google store', () => {
     })
 
     it('Single color', function () {
-        cy.get('@productData').then((productData) =>{
-            productData.goods.forEach(product =>{
-
-                let item = {};
+        cy.get('@productData').then((productData) => {
+            productData.goods.forEach(product => {
 
                 cy.log('GIVEN User is at Accessories page')
                 GoogleStore.open()
@@ -31,29 +29,33 @@ describe('Tests for google store', () => {
 
                 cy.log('AND user goes to the product page')
                 GoogleStore.goToProductPage(product.name)
-                GoogleStore.getProductName(item)
 
-                GoogleStore.getProductPrice(item).then(() =>{
+                GoogleStore.getProductName().then(productName => {
 
-                    cy.log('AND user clicks button buy')
-                    GoogleStore.clickButtonBuy()
+                    GoogleStore.getProductPrice().then(productPrice => {
 
-                    cy.log('THEN added product is displayed in the cart')
-                    GoogleCart.getProductNameInCart().should('include.text', item.title)
+                        cy.log('AND user clicks button buy')
+                        GoogleStore.clickBuyButton()
 
-                    cy.log('AND product price is correct')
-                    GoogleCart.getProductPriceInCart().should('include.text', item.price)
+                        cy.log('THEN added product is displayed in the cart')
+                        GoogleCart.getProductNameInCart().should('include.text', productName)
 
-                    cy.log('AND product quantity is correct')
-                    GoogleCart.checkProductQuantity()
+                        cy.log('AND product price is correct')
+                        GoogleCart.getProductPriceInCart().should('include.text', productPrice.replace('From $', ''))
 
-                    cy.log('AND total price is correct')
-                    GoogleCart.getTotalPrice().should('include.text', item.price)
-
+                        cy.log('AND total price is correct')
+                        GoogleCart.getTotalPrice().should('include.text', productPrice.replace('From $', ''))
+                        
+                    })
                 })
+
+                cy.log('AND product quantity is correct')
+                GoogleCart.checkProductQuantity()
+
             })
         })
     })
+
     after(() => {
         GoogleCart.clearCartAnyCase()
         GoogleCart.checkIfTheCartIsEmpty()
