@@ -28,8 +28,8 @@ class GoogleCart {
         return cy.get('.ghost-center-wrap .your-cart-is-empty')
     }
 
-    checkProductQuantity() {
-        this.getProductQuantity().should('contain', '1')
+    checkProductQuantity(quantity) {
+        this.getProductQuantity().should('contain', `${quantity}`)
     }
 
     selectProductQuantity(number) {
@@ -51,8 +51,6 @@ class GoogleCart {
             }
         })
     }
-
-
 }
 
 export default new GoogleCart()

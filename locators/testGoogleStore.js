@@ -42,7 +42,7 @@ describe('Tests for google store', () => {
                             GoogleStore.addToCartAnyColor()
                             GoogleStore.goToCart()
 
-                            cy.log('AND color is correct')
+                            cy.log('THEN color is correct')
                             GoogleCart.getColorInCart().should('include.text', productColor.replace('Color: ',''))
                         })
                     }
@@ -50,17 +50,17 @@ describe('Tests for google store', () => {
                     cy.log('THEN added product is displayed in the cart')
                     GoogleCart.getProductNameInCart().should('include.text', productName)
 
-                    cy.log('AND product price is correct')
+                    cy.log('THEN product price is correct')
                     GoogleCart.getProductPriceInCart().should('include.text', productPrice.replace('From $', ''))
 
-                    cy.log('AND total price is correct')
+                    cy.log('THEN total price is correct')
                     GoogleCart.getTotalPrice().should('include.text', productPrice.replace('From $', ''))
 
                 })
             })
 
-            cy.log('AND product quantity is correct')
-            GoogleCart.checkProductQuantity()
+            cy.log('THEN product quantity is correct')
+            GoogleCart.checkProductQuantity(1)
 
         })
     })
