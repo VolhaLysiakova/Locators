@@ -27,43 +27,43 @@ describe('Tests for google store', () => {
 
                 cy.log('AND user goes to the product page')
                 GoogleStore.goToProductPage(product.name)
-                
+
                 GoogleStore.getProductName().then(productName => {
                     cy.wrap(productName).as('productName')
                 })
 
                 GoogleStore.getProductPrice().then(productPrice => {
                     cy.wrap(productPrice).as('productPrice')
-                    cy.log('AND user clicks button buy')
-                    GoogleStore.clickBuyButton()
                 })
                 
+                cy.log('AND user clicks button buy')
+                GoogleStore.clickBuyButton()
             })
         })
     })
 
     it('Google Cart', function () {
 
-            cy.log('THEN added product is displayed in the cart')
-            GoogleCart.getProductNameInCart().should('include.text', this.productName)
+        cy.log('THEN added product is displayed in the cart')
+        GoogleCart.getProductNameInCart().should('include.text', this.productName)
 
-            cy.log('THEN product price is correct')
-            //GoogleCart.getProductPriceInCart().should('include.text', item.price)
+        cy.log('THEN product price is correct')
+        GoogleCart.getProductPriceInCart().should('include.text', this.productPrice.replace('From $', ''))
 
-            cy.log('THEN product quantity is correct')
-            GoogleCart.checkProductQuantity(1)
+        cy.log('THEN product quantity is correct')
+        GoogleCart.checkProductQuantity(1)
 
-            cy.log('THEN total price is correct')
-            GoogleCart.getTotalPrice().should('include.text', this.productPrice.replace('From $', ''))
+        cy.log('THEN total price is correct')
+        GoogleCart.getTotalPrice().should('include.text', this.productPrice.replace('From $', ''))
 
-            let quantity = 3
+        let quantity = 3
 
-            cy.log(`WHEN user changes product quantity from 1 to ${quantity}`)
-            GoogleCart.selectProductQuantity(quantity)
+        cy.log(`WHEN user changes product quantity from 1 to ${quantity}`)
+        GoogleCart.selectProductQuantity(quantity)
 
-            cy.log('THEN total price is correct')
-            GoogleCart.getTotalPrice().should('include.text', this.productPrice.replace('From $', '') * quantity)
-      
+        cy.log('THEN total price is correct')
+        GoogleCart.getTotalPrice().should('include.text', this.productPrice.replace('From $', '') * quantity)
+
     })
 })
 
